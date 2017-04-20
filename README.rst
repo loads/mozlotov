@@ -16,25 +16,26 @@ Example of Molotov integration:
 .. code-block:: python
 
     from molotov import global_setup, global_teardown setup
+    from molotov.util import set_var, get_var
+    
     from mozlotov import FXATestAccount
 
-    _FXA = []
 
     @global_setup()
     def create_accoun(args):
         # creates the user and get a Bearer token
         acct = FXATestAccount()
         acct.create()
-        _FXA.append(acct)
+        set_var('fxa', acct)
 
     @global_teardown()
     def destroy_account():
         # destroys the user
-        _FXA[0].cleanup()
+        get_var('fxa').cleanup()
 
     @setup()
     async def init_test(worker_id, args):
         # grab the Bearer token for the Molotov test
-        headers = {"Authorization": _FXA[0].authorization()}
+        headers = {"Authorization": get_var('fxa').authorization()}
         return {'headers': headers}
 
