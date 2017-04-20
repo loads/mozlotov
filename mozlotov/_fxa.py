@@ -34,7 +34,7 @@ class FXATestAccount(object):
         if m is None:
             raise RuntimeError("verification email did not arrive")
 
-        self.token = get_bearer_token(self.acct.email, self.password
+        self.token = get_bearer_token(self.acct.email, self.password,
                                       account_server_url=self.server+"/v1",
                                       oauth_server_url=self.oauth,
                                       scopes=['sync:addon_storage'],
