@@ -1,0 +1,4 @@
+molotov
+requests_hawk
+requests
+PyFxA
