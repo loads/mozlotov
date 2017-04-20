@@ -1,5 +1,5 @@
 import os
-import functools.partials
+import functools
 
 from fxa.__main__ import DEFAULT_CLIENT_ID
 from fxa.core import Client
