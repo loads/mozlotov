@@ -22,7 +22,7 @@ Example of Molotov integration:
 
 
     @global_setup()
-    def create_accoun(args):
+    def create_account(args):
         # creates the user and get a Bearer token
         acct = FXATestAccount()
         acct.create()
